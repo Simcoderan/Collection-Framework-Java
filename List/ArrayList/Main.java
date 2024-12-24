@@ -10,6 +10,8 @@
 package List.ArrayList;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -54,13 +56,17 @@ public class Main {
 
 
 
-
-
-
-
-
-        
-    }
-    
-    
-}
+         // Arrays.asList Example
+         List<String> list2 = Arrays.asList("Monday", "Tuesday");
+         System.out.println("List created using Arrays.asList: " + list2);
+ 
+         // If we have an array and want to convert it into a list
+         String[] array = {"Apple", "Banana", "Cherry"};
+         List<String> list3 = Arrays.asList(array);
+         System.out.println("List from array: " + list3);
+ 
+         // Modifying list3 will reflect in the array and vice versa
+         array[1] = "Blueberry";
+         System.out.println("Modified list3: " + list3);
+     }
+ }
