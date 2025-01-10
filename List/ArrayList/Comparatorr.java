@@ -69,3 +69,6 @@ public class Comparatorr {
         
     }
 }
+
+
+//Collections.sort(students,comparator);
