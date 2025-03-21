@@ -1,6 +1,7 @@
 package List.LinkedList;
 
 import java.util.LinkedList;
+import java.util.Arrays;
 
 public class Test {
     public static void main(String[] args) {
@@ -8,43 +9,34 @@ public class Test {
        LinkedList<Integer> linkedList = new LinkedList<>();
 
        // ADD METHOD 
-       linkedList.add(1);   //linkedlist is a linear ds where each element is seperate obj called node.
-       linkedList.add(2);   //node--- DATA & POINTER
+       linkedList.add(1);   // LinkedList is a linear DS where each element is a separate object called a node.
+       linkedList.add(2);   // Node consists of DATA & POINTER
        linkedList.add(3);
-       //GET METHOD
-       linkedList.get(2); //O(n)
-       linkedList.addLast(4); //O(1)
-       linkedList.addFirst(0); //O(1)
-       linkedList.getLast();
-       linkedList.getFirst();
-       //REMOVE METHOD
-       linkedList.removeIf(x -> x % 2 == 0); //remove the element if it is  satisfying the condition  in the bracket
-       linkedList.removeAll(linkedList)
+       
+       // GET METHOD
+       System.out.println(linkedList.get(2)); // O(n)
+       linkedList.addLast(4); // O(1)
+       linkedList.addFirst(0); // O(1)
+       System.out.println(linkedList.getLast());
+       System.out.println(linkedList.getFirst());
 
+       // REMOVE METHOD
+       linkedList.removeIf(x -> x % 2 == 0); // Remove elements satisfying the condition in the bracket
+       linkedList.clear(); // Removes all elements from the list
 
-       LinkedList<String> animals = new LinkedList<>(Arrays.asList("Cat","Dog","Elephant"));
-       LinkedList<String> animalsToRemove = new LinkedList<>(Arrays.asList("Dog","Elephant"));
+       LinkedList<String> animals = new LinkedList<>(Arrays.asList("Cat", "Dog", "Elephant"));
+       LinkedList<String> animalsToRemove = new LinkedList<>(Arrays.asList("Dog", "Elephant"));
        animals.removeAll(animalsToRemove);
-       System.out.println(animals);
-
-
-        
+       
+       System.out.println(animals); // Output: [Cat]
     }
-
-   
-    
 }
 
-
-//LINKEDLIST
+// LINKEDLIST
 /*
-   Better Performance Characteristics compare to ArrayList
+   Better Performance Characteristics Compared to ArrayList:
 
-     -Insertions and Deletion: doesnt require to shift elemtns
-     -Random Access: slower random access
-     -Memory Overhead : memory more
-
- */
-
-
- 
+     - Insertions and Deletions: Do not require shifting elements.
+     - Random Access: Slower random access.
+     - Memory Overhead: Higher memory usage due to storing extra pointers.
+*/
