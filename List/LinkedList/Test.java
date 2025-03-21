@@ -19,9 +19,13 @@ public class Test {
        linkedList.getFirst();
        //REMOVE METHOD
        linkedList.removeIf(x -> x % 2 == 0); //remove the element if it is  satisfying the condition  in the bracket
+       linkedList.removeAll(linkedList)
 
 
-       
+       LinkedList<String> animals = new LinkedList<>(Arrays.asList("Cat","Dog","Elephant"));
+       LinkedList<String> animalsToRemove = new LinkedList<>(Arrays.asList("Dog","Elephant"));
+       animals.removeAll(animalsToRemove);
+       System.out.println(animals);
 
 
         
