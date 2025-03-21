@@ -57,6 +57,34 @@ clear() – Removes all elements from the vector. */
 
 
 
+/* 🚀Understanding Vector in Java🚀
+
+✔ Legacy Class:
+Vector is an older collection class that implements the List interface.
+It was introduced in Java 1.0, before the ArrayList.
+
+
+✔ Dynamic Array:
+Similar to ArrayList, Vector grows dynamically when elements are added.
+Unlike arrays, which have a fixed size, Vector can expand as needed.
+
+
+✔ Thread Safety:
+Vector is synchronized, meaning it is thread-safe.
+However, this synchronization comes with a performance cost in single-threaded environments.
+
+✔ Performance Consideration:
+In modern applications, ArrayList is preferred because it is faster than Vector in non-threaded environments.
+If thread safety is required, CopyOnWriteArrayList (from java.util.concurrent) is a better alternative.
+
+When to Use Vector?
+✔ If thread safety is a primary concern.
+✔ If working on legacy codebases where Vector is already in use.
+✔ When using synchronized collections in a multi-threaded environment */
+
+
+
+
 
 
 
