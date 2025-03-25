@@ -55,6 +55,24 @@ public class HashMapDemo {
     }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
  * 📌 HashMap in Java – Key Characteristics
  * 🔹 Unordered
@@ -274,3 +292,7 @@ public class HashMapDemo {
  * Using a good hash function ensures that HashMap remains efficient with O(1)
  * average time complexity!
  */
+
+ /*OBJECT CLASS -HashCode (memory address)
+                -Equals(reference)
+  */
