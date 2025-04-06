@@ -1,4 +1,4 @@
-package Map;
+package Map.Hashmap;
 /* 🚀 The concept of a Map in Java:
 
 - A Map is an object that maps keys to values.

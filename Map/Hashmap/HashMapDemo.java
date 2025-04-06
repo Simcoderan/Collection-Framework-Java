@@ -1,4 +1,4 @@
-package Map; // Declaring the package
+package Map.Hashmap; // Declaring the package
 
 import java.util.HashMap;
 import java.util.Set;

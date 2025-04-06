@@ -1,4 +1,4 @@
-package Map;
+package Map.Hashmap;
 
 import java.lang.ref.WeakReference; // Importing WeakReference
 
