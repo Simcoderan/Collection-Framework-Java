@@ -5,17 +5,26 @@ import java.util.Map;
 
 public class IdentityHashMapDemo {
     public static void main(String[] args) {
-        // 🔹 key1 and key2 have same content but are different objects (different references)
-        String key1 = new String("key");
-        String key2 = new String("key");
+        String key1 = new String("key"); // 🔹 Creates a new object with value "key"
+        String key2 = new String("key"); // 🔹 Another new object with same value, different reference
 
-        // ✅ Using IdentityHashMap to demonstrate reference-based comparison
+        // 🔍 Print identity hash codes (memory reference based)
+        System.out.println(System.identityHashCode(key1)); // different hashcode
+        System.out.println(System.identityHashCode(key2)); // different hashcode
+
+
+        // 🔍 hashCode() → based on content since String overrides hashCode()
+        System.out.println(key1.hashCode()); 
+        System.out.println(key2.hashCode()); 
+
+
         Map<String, Integer> map = new IdentityHashMap<>();
 
-        // 🔸 Although content is same, identity (reference) is different
-        map.put(key1, 1);
-        map.put(key2, 2);
+        // 🔸 Despite equal content, key1 and key2 are different objects (== comparison fails)
+        map.put(key1, 1); // key1, 1
+        map.put(key2, 2); // key2, 2
 
+        // 🖨️ Output will show both entries as keys are different by reference
         System.out.println(map);
     }
 }
