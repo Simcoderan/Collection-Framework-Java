@@ -5,6 +5,7 @@ import java.util.Map;
 
 // MAP → ENUM → FAST ACCESS → EnumMap
 // Implements – Map interface, optimized for enums as keys
+//ordinal-index
 
 public class EnumMapDemo {
 
