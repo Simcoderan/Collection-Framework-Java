@@ -1,4 +1,4 @@
-package Queue;
+package Queue.Introduction;
 
 import java.util.PriorityQueue;
 import java.util.Comparator;

@@ -1,9 +1,9 @@
-package Queue;
+package Queue.Introduction;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Intro {
+public class ArrayAndLinkedListDemo {
 
     public static void main(String[] args) {
         // ✅ Creating a Queue using LinkedList
