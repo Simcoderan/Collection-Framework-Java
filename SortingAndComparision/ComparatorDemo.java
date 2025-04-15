@@ -1,4 +1,3 @@
-
 package SortingAndComparision;
 import java.util.*;
 
@@ -86,5 +85,6 @@ public class ComparatorDemo {
 
 💬 Interview Tip:
 "Use Comparator when you want to sort objects in more than one way without modifying their class."
+
 
 */
