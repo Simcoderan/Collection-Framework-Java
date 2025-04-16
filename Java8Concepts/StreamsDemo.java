@@ -7,12 +7,27 @@ import java.util.stream.*;
 public class StreamsDemo {
 
     public static void main(String[] args) {
+
+        // ✅ Creating Stream from a Collection (List)
         List<String> names = Arrays.asList("Simran", "Saurabh", "Ritika", "Roop", "Sandeep", "Saurabh");
+        Stream<String> nameStream = names.stream(); // Sequential Stream
+        Stream<String> parallelNameStream = names.parallelStream(); // Parallel Stream
+
+        // ✅ Creating Stream from an Array
+        String[] nameArray = {"Simran", "Saurabh", "Ritika"};
+        Stream<String> arrayStream = Arrays.stream(nameArray);
+
+        // ✅ Using Stream.of() for small fixed collections
+        Stream<Integer> numberStream = Stream.of(10, 20, 30, 40);
+
+        // ---------------------------------------------
+        // Stream Examples
+        // ---------------------------------------------
 
         // ✅ Example 1: Filter names starting with 'S'
-        List<String> filteredNames = names.stream()                      // Create a Stream from the list
-                                          .filter(name -> name.startsWith("S")) // Filter condition
-                                          .collect(Collectors.toList());       // Collect back to a list
+        List<String> filteredNames = names.stream()
+                                          .filter(name -> name.startsWith("S"))
+                                          .collect(Collectors.toList());
 
         System.out.println("Names starting with S: " + filteredNames);
 
@@ -153,9 +168,6 @@ Q5: What is the advantage of using parallelStream()?
            numbers.parallelStream()
                     .map(n -> n * 2)
                     .forEach(System.out::println);
-
-
-
 
 
 
