@@ -1,4 +1,3 @@
-// File: StreamsDemo.java
 package Java8Concepts;
 
 import java.util.*;
@@ -6,94 +5,120 @@ import java.util.stream.*;
 
 public class StreamsDemo {
 
-   public static void main(String[] args) {
+    public static void main(String[] args) {
 
-      // ✅ Creating Stream from a Collection (List)
-      List<String> names = Arrays.asList("Simran", "Saurabh", "Ritika", "Roop", "Sandeep", "Saurabh");
-      Stream<String> nameStream = names.stream(); // Sequential Stream
-      Stream<String> parallelNameStream = names.parallelStream(); // Parallel Stream
+        // ✅ Creating Stream from a Collection (List)
+        List<String> namesList = Arrays.asList("Simran", "Saurabh", "Ritika", "Roop", "Sandeep", "Saurabh");
+        Stream<String> nameStream = namesList.stream(); // Sequential Stream
+        Stream<String> parallelNameStream = namesList.parallelStream(); // Parallel Stream
 
-      // ✅ Creating Stream from an Array
-      String[] nameArray = { "Simran", "Saurabh", "Ritika" };
-      Stream<String> arrayStream = Arrays.stream(nameArray);
+        // ✅ Creating Stream from an Array
+        String[] nameArray = { "Simran", "Saurabh", "Ritika" };
+        Stream<String> arrayStream = Arrays.stream(nameArray);
 
-      // ✅ Using Stream.of() for small fixed collections
-      Stream<Integer> numberStream = Stream.of(10, 20, 30, 40);
+        // ✅ Using Stream.of() for small fixed collections
+        Stream<Integer> numberStream = Stream.of(10, 20, 30, 40);
 
-      // ---------------------------------------------
-      // Stream Examples
-      // ---------------------------------------------
+        // ---------------------------------------------
+        // Stream Examples
+        // ---------------------------------------------
 
-      // ✅ Example 1: Filter names starting with 'S'
-      List<String> filteredNames = names.stream()
-            .filter(name -> name.startsWith("S"))
-            .collect(Collectors.toList());
+        // ✅ Example 1: Filter names starting with 'S'
+        List<String> filteredNames = namesList.stream()
+                .filter(name -> name.startsWith("S"))
+                .collect(Collectors.toList());
+        System.out.println("Names starting with S: " + filteredNames);
 
-      System.out.println("Names starting with S: " + filteredNames);
+        // ✅ Example 2: Convert all names to uppercase using map()
+        List<String> upperCaseNames = namesList.stream()
+                .map(String::toUpperCase)
+                .collect(Collectors.toList());
+        System.out.println("Uppercase names: " + upperCaseNames);
 
-      // ✅ Example 2: Convert all names to uppercase using map()
-      List<String> upperCaseNames = names.stream()
-            .map(String::toUpperCase)
-            .collect(Collectors.toList());
+        // ✅ Example 3: Remove duplicates using distinct()
+        List<String> distinctNames = namesList.stream()
+                .distinct()
+                .collect(Collectors.toList());
+        System.out.println("Distinct names: " + distinctNames);
 
-      System.out.println("Uppercase names: " + upperCaseNames);
+        // ✅ Example 4: Count names with length > 6
+        long nameCount = namesList.stream()
+                .filter(name -> name.length() > 6)
+                .count();
+        System.out.println("Names with length > 6: " + nameCount);
 
-      // ✅ Example 3: Remove duplicates using distinct()
-      List<String> distinctNames = names.stream()
-            .distinct()
-            .collect(Collectors.toList());
+        // ✅ Example 5: Sort the names
+        List<String> sortedNames = namesList.stream()
+                .sorted()
+                .collect(Collectors.toList());
+        System.out.println("Sorted names: " + sortedNames);
 
-      System.out.println("Distinct names: " + distinctNames);
+        // ✅ Creating Infinite Streams
 
-      // ✅ Example 4: Count names with length > 6
-      long count = names.stream()
-            .filter(name -> name.length() > 6)
-            .count();
+        // Infinite Stream using Stream.iterate()
+        Stream<Integer> infiniteNumbers = Stream.iterate(1, n -> n + 1)
+                .limit(10);
+        System.out.println("Infinite Stream using iterate (first 10 numbers):");
+        infiniteNumbers.forEach(System.out::println);
 
-      System.out.println("Names with length > 6: " + count);
+        // Infinite Stream using Stream.generate()
+        Stream<Double> randomNumbers = Stream.generate(Math::random)
+                .limit(5);
+        System.out.println("Infinite Stream using generate (5 random numbers):");
+        randomNumbers.forEach(System.out::println);
 
-      // ✅ Example 5: Sort the names
-      List<String> sortedNames = names.stream()
-            .sorted()
-            .collect(Collectors.toList());
+        // ✅ limit(n): Get only first 3 elements
+        List<Integer> limited = Stream.of(10, 20, 30, 40, 50)
+                .limit(3)
+                .collect(Collectors.toList());
+        System.out.println("Limited (first 3): " + limited);
 
-      System.out.println("Sorted names: " + sortedNames);
+        // ✅ skip(n): Skip first 3 elements
+        List<Integer> skipped = Stream.of(10, 20, 30, 40, 50)
+                .skip(3)
+                .collect(Collectors.toList());
+        System.out.println("Skipped (after 3): " + skipped);
 
-      // ✅ Creating Infinite Streams
+        // ✅ reduce(): Sum all elements in the list
+        int sum = Stream.of(10, 20, 30, 40)
+                .reduce(0, Integer::sum);
+        System.out.println("Reduced (sum): " + sum);
 
-      // Infinite Stream using Stream.iterate()
-      // Starts from 1, adds 1 repeatedly → 1, 2, 3, ...
-      Stream<Integer> infiniteNumbers = Stream.iterate(1, n -> n + 1)
-            .limit(10); // limit to avoid infinite loop
-      System.out.println("Infinite Stream using iterate (first 10 numbers):");
-      infiniteNumbers.forEach(System.out::println);
+        // ✅ Filtering and Collecting Names (length > 3)
+        List<String> someNames = Arrays.asList("Anna", "Bob", "Charlie", "David");
+        System.out.println("Names with length > 3: " +
+                someNames.stream()
+                        .filter(x -> x.length() > 3)
+                        .toList()
+        );
 
-      // Infinite Stream using Stream.generate()
-      // Generates random numbers indefinitely
-      Stream<Double> randomNumbers = Stream.generate(Math::random)
-            .limit(5); // limiting to 5
-      System.out.println("Infinite Stream using generate (5 random numbers):");
-      randomNumbers.forEach(System.out::println);
+        // ✅ Squaring and Sorting Numbers
+        List<Integer> numbersList = Arrays.asList(5, 2, 9, 1, 6);
+        System.out.println("Squared and Sorted: " +
+                numbersList.stream()
+                        .map(x -> x * x)
+                        .sorted()
+                        .toList()
+        );
 
-      // ✅ limit(n): Get only first 3 elements
-      List<Integer> limited = numbers.stream()
-            .limit(3)
-            .collect(Collectors.toList());
-      System.out.println("Limited (first 3): " + limited);
+        // ✅ Squaring and Summing Numbers
+        int sumOfSquares = numbersList.stream()
+                .map(x -> x * x)
+                .reduce(0, Integer::sum);
+        System.out.println("Sum of Squares: " + sumOfSquares);
 
-      // ✅ skip(n): Skip first 3 elements
-      List<Integer> skipped = numbers.stream()
-            .skip(3)
-            .collect(Collectors.toList());
-      System.out.println("Skipped (after 3): " + skipped);
+        // ✅ Counting Occurrences of a Character
+        String sentence = "Hello world";
 
-      // ✅ reduce(): Sum all elements in the list
-      int sum = numbers.stream()
-            .reduce(0, (a, b) -> a + b); // identity = 0, accumulator = a + b
-      System.out.println("Reduced (sum): " + sum);
-
-   }
+        // ✅ Count how many times 'l' appears
+        long charCount = sentence.chars()
+                .filter(x -> x == 'l')
+                .count();
+        System.out.println("Count of 'l': " + charCount);
+    }
 }
+
+
 
 /*
  * ============================================================
