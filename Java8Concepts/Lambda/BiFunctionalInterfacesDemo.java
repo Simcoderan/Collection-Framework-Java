@@ -1,4 +1,4 @@
-package Java8Concepts;
+package Java8Concepts.Lambda;
 
 import java.util.function.BiPredicate;
 import java.util.function.BiFunction;

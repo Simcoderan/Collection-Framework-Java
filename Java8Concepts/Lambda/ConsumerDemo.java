@@ -1,4 +1,4 @@
-package Java8Concepts;
+package Java8Concepts.Lambda;
 
 import java.util.function.Consumer;
 import java.util.Arrays;

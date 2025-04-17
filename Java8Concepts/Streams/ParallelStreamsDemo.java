@@ -1,4 +1,4 @@
-package Java8Concepts;
+package Java8Concepts.Streams;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
